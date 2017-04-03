@@ -15,7 +15,7 @@
 
 - Chuyển qua quyền `root` để thực hiện các bước cài đặt
   ```sh
-  root
+  su - 
   ```
 
 - Cài đặt apache
@@ -32,6 +32,7 @@
   ```
 
 ####  2.1 Tải các gói cài đặt của `Nagios Core`
+- Lưu ý: Bước này thực hiện trên máy chủ `Nagios Server`
 - Tải `nagios core 4.3.1` và thực hiện biên dịch.
   ```sh
   cd /opt/
@@ -45,7 +46,7 @@
   sudo make install-config
   sudo make install-commandmode
   ```
-- Now copy event handlers scripts under libexec directory. These binaries provides multiple events triggers for your Nagios web interface
+- Copy các script để mở rộng 
   ```sh
   cp -R contrib/eventhandlers/ /usr/local/nagios/libexec/
   chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
@@ -124,7 +125,7 @@ với nội dung dưới
    
 - Khởi động nagios
   ```sh
-  services nagios start
+  service nagios start
   ```
 
 - Thực hiện lệnh dưới để khởi động nagios khi reboot lại máy chủ.
@@ -141,4 +142,7 @@ với nội dung dưới
  
 - Nhập tài khoản và mật khẩu đã tạo ở trên vào.
  
+
+## Tham khảo
+- https://tecadmin.net/install-nagios-monitoring-server-on-ubuntu/
  
