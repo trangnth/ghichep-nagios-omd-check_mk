@@ -59,6 +59,7 @@
   ```
 
 với nội dung dưới
+
   ```sh
   ScriptAlias /nagios/cgi-bin "/usr/local/nagios/sbin"
 
