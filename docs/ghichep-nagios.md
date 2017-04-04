@@ -9,7 +9,8 @@
   - Nagios Server: Ubuntu Server 14.04 64 bit. IP: `172.16.69.211`
   - Nagios Client1 : Ubuntu Server 14.04 64 bit. IP: IP: `172.16.69.209`
   
- - Phiên bản Nagios: Nagios core 4.3.1  
+ - Phiên bản Nagios: Nagios core 4.3.1
+ - Thực hiện cài đặt nagios với quyền `root` 
  
 ### 2. Cài đặt trên Server
 
@@ -133,7 +134,7 @@ với nội dung dưới
   sudo update-rc.d nagios defaults
   ```
 
-#### Cài đặt NRPE phía server 
+#### 2.5 Cài đặt NRPE phía server 
 - Phía server nagios sẽ có `check NRPE` để thực hiện gửi các câu lệnh tới `NRPE service` ở phía client để yêu cầu thực thi các script check các dịch vụ cần giám sát. Do vậy cần cài đặt gói NRPE trên server.
 - Thực hiện tải gói NRPE, giải nén và cài đặt trên `Nagios Server`
 
@@ -184,7 +185,7 @@ với nội dung dưới
 - Nhập tài khoản và mật khẩu đã tạo ở trên vào.
  
 
-### Cài đặt giám sát các host (cài đặt phía client).
+### 3. Cài đặt giám sát các host (cài đặt phía client).
 - Nagios sử dụng cơ chế NRPE (Nagios Remote Plugin Executor) để giám sát các host ở xa. Ngoài NRPE còn nhiều cơ chế khác.
 - NRPE là một tiện ích bổ sung thêm cùng với bộ nagios để thực thi các plugin trên client (plugin là các script thực thi phía clinet). Mô hình của NRPE như sau: http://prntscr.com/es90vs
 - Thực hiện lệnh dưới để cài các gói bổ trợ và NRPE phía các host client
