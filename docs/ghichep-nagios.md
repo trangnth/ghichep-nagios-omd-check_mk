@@ -272,7 +272,7 @@ Restart Nagios deamon
 
 Kết quả 
 
-<img src="http://prntscr.com/eyz180">
+<img src="http://i.imgur.com/q3D8XaO.png">
 
 ## Ghi chú:
 
