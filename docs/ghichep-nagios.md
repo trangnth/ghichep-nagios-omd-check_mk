@@ -219,6 +219,61 @@ apt-get -y install nagios-nrpe-server nagios-plugins
   
 #### Bước khai báo các host để nagios giám sát 
 
+Trên server, tạo một file cấu hình cho host 
+
+	sudo vi /usr/local/nagios/etc/objects/MyLinuxHost001.cfg
+	
+Chúng ta sẽ định nghĩa một service PING cho host 
+
+	#########################################################
+	# Linux Host 001 configuration file
+	#########################################################
+
+	define host {
+			use                          linux-server
+			host_name                    Linux_Host_001
+			alias                        Linux Host 001
+			address                      172.16.69.209
+			register                     1
+	}
+	define service{
+		  host_name                       Linux_Host_001
+		  service_description             PING
+		  check_command                   check_ping!100.0,20%!500.0,60%
+		  max_check_attempts              2
+		  check_interval                  2
+		  retry_interval                  2
+		  check_period                    24x7
+		  check_freshness                 1
+		  contact_groups                  admins
+		  notification_interval           2
+		  notification_period             24x7
+		  notifications_enabled           1
+		  register                        1
+	}
+
+
+	#########################################################
+	# END OF FILE
+	#########################################################
+
+	
+Edit file cấu hình chính để khai báo file cấu hình mới 
+
+	sudo vi /usr/local/nagios/etc/nagios.cfg
+	
+Thêm dòng sau ở cuối 
+
+	cfg_file=/usr/local/nagios/etc/objects/MyLinuxHost001.cfg
+	
+Restart Nagios deamon
+
+	sudo /etc/init.d/nagios restart 
+
+Kết quả 
+
+<img src="http://prntscr.com/eyz180">
+
 ## Ghi chú:
 
 ### Check các service ngay và luôn
@@ -230,4 +285,5 @@ apt-get -y install nagios-nrpe-server nagios-plugins
  
 ## Tham khảo
 - https://tecadmin.net/install-nagios-monitoring-server-on-ubuntu/
- 
+
+- http://www.the-tech-tutorial.com/adding-hosts-to-nagios/
