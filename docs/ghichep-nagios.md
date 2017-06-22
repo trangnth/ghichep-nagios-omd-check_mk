@@ -279,8 +279,8 @@ Kết quả
 ### Check các service ngay và luôn
 - Khi cài đặt và khai báo host để nagios giám sát xong, cần phải chờ xxx phút thì các service mới được giám sát (link ảnh), trạng thái lúc này là pending. Do vậy để Nagios Server check các service này ngay thì thực hiện như sau:
 - Bước 1: click vào service đang ở trạng thái pending: 
-- Bước 2: Click vào dòng `Re-schedule the next check of this service`. Tham khảo: http://prntscr.com/es7ar0
-- Bước 3: Click vào nút commit. Tham khảo: http://prntscr.com/es7b2u
+- Bước 2: Click vào dòng `Re-schedule the next check of this service`. Tham khảo: <img src = "http://prntscr.com/es7ar0">
+- Bước 3: Click vào nút commit. Tham khảo: <img src = "http://prntscr.com/es7b2u">
 - Bước 4: Quay lại tab `Host` để xem trạng thái của service được update, lúc này service sẽ được update ngay mà không phải chờ sau thời gian mặc định nữa.
  
 ## Tham khảo
